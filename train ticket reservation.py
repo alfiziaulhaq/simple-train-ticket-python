@@ -154,10 +154,7 @@ print("\t\t\t\t\t\t\t\t%s\t%s"%('pay out  = ',('${:,.2f}'.format(pay))))
 print (x)
 print(y)
 print(p)
-print(q)
-print(r)
-print(z)
-print(v)
+
 
 
 
