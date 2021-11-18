@@ -13,6 +13,7 @@ w=[]    #price
 fm=[]   #sex [[]]
 p=[]    #passnger name [[]]
 q=[]    #passanger seat number[[]]
+clas=[] #class [[]]
 rs=[]   #number of passangers per destination
 
 print('-------wellcome to E-train ticket reservation---------')
@@ -61,19 +62,15 @@ def passanger(r,s):
         else :
             f.append('FEMALE')
 
+def seat(m,n) :
+    qqq= random.sample(range(m,n),1)
+    for k in range(r) :
+        qq.append(qqq[-1]+k)
+
 while b ==1 :
+    info()
     xx=[]
     xxx=0
-    yy=0
-    yyy=0
-    f=[]
-    pp=[]
-    qq=[]
-    rr=[]
-    r=0
-    s=1
-
-    info()
     while '1'not in xx and '2'not in xx and '3'not in xx and '4'not in xx  :
         xx.append(input('select your destination(1/2/3/4) : '))
     x.append(int(xx[-1]))
@@ -91,6 +88,8 @@ while b ==1 :
         z.append('KONOHA -  MARINEFORD')
         w.append(price[3])
 
+    yy=0
+    yyy=0
     date = False
     while date==False:
         yy=str(input('enter date destination (dd-mm) : '))
@@ -104,22 +103,38 @@ while b ==1 :
             print ('none day or month = ',yy,'-2022')
             print('please fill it carefully !!!')
             date =False
-
+    
+    cl=[]
+    while '1' not in cl and '2' not in cl :
+        print('1. business class')
+        print('2. economy class')
+        cl=input('your class(1/2): ')
+    clas.append(int(cl[-1]))
+    
+    rr=[]
+    r=0
     rr=[]
     while '1'not in rr and '2'not in rr and '3'not in rr and '4'not in rr and '5'not in rr  :
         print ('maximum reservation are 5 passanger !!!')
         rr.append(input('number of passanger = '))
     r=int(rr[-1])
-    passanger(r,s)
+    rs.append(r)
 
-    qqq= random.sample(range(100,300),1)
-    for k in range(r) :
-        qq.append(qqq[-1]+k)
+    f=[]
+    pp=[]
+    qq=[]
+    s=1
+    passanger(r,s)
+ 
+    if cl[-1]==str(1):
+        seat(1,100)
+    else :
+        seat(100,300)
 
     fm.append(f)
     p.append(pp)
     q.append(qq)
-    rs.append(r)
+
     print('------------------------------------------------------')
 
     c=[]
@@ -131,11 +146,11 @@ while b ==1 :
         b=5
 
 print('------------------------------------------------------')
-print ("\t%s\t%s\t%s\t\t%s\t%s\t%s"%('destination','date arrive','name','sex','seat number ','price'))
+print ("\t%s\t%s\t%s\t\t%s\t%s\t%s\t%s"%('destination','date arrive','name','sex','class','seat number ','price'))
 print('-----------------------------------------------------------------------------------------------------')
 for i in range(len(x)) :
     for j in range(rs[i]) :
-        print("%s\t%s\t%s\t\t%s\t%s\t\t%s"%(z[i],y[i],p[i][j],fm[i][j],q[i][j],('${:,.2f}'.format(w[i]))))
+        print("%s\t%s\t%s\t\t%s\t%s\t%s\t\t%s"%(z[i],y[i],p[i][j],fm[i][j],clas[i],q[i][j],('${:,.2f}'.format(w[i]))))
 print('-----------------------------------------------------------------------------------------------------')
 
 #total order price
@@ -151,6 +166,19 @@ print("\t\t\t\t\t\t\t\t%s\t%s"%('total    = ',('${:,.2f}'.format(sum(total)))))
 print("\t\t\t\t\t\t\t\t%s\t%s"%('discount = ',('${:,.2f}'.format(disc))))
 print("\t\t\t\t\t\t\t\t%s\t%s"%('pay out  = ',('${:,.2f}'.format(pay))))
 
+
+cap=0
+capin=[]
+while cap==0: 
+    cr=(random.sample(range(3,15),2))
+    print(cr[0],'+',cr[-1])
+    capin.append(input('enter re captcha = '))
+    if capin[-1]==str(cr[0]+cr[-1]) :
+        cap=1
+    else :
+        pass
+
+        
 print (x)
 print(y)
 print(p)
