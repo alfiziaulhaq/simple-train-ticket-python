@@ -234,7 +234,7 @@ print("\t\t\t\t\t\t\t\t\t\t\t\t%s"%('-------------------------'))
 print("\t\t\t\t\t\t\t\t\t\t\t\t%s\t%s"%('PAY OUT  = ',('${:,.2f}'.format(pay))))
 
 
-print('this is syncing to unlimited paypal account balance :)')
+print('this is SYNCING to unlimited paypal account balance :)')
 print('1. BUY now and PRINT TICKET')
 a=[]
 while '1'not in a : 
